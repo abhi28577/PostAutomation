@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "a1c885e7-21c0-4f4f-9921-c5776626bbb5",
+		"name": "CollectionReq",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"description": "",
+			"item": [
+				{
+					"name": "GetSingleUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74669837-e7c8-43eb-bd41-2dc62ec1d0dc",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"Hello World\");",
+									"let UrlValue = pm.variables.get(\"url\");",
+									"console.log(\"Value for URL Value:\" + UrlValue);",
+									"",
+									"pm.variables.set(\"name\",\"Vizag\");",
+									"console.log(\"Name:\" +pm.variables.get(\"name\"));",
+									"",
+									"let GlobalName = pm.globals.get(\"Name\");",
+									"console.log(\"Global Name:\" + GlobalName);",
+									"",
+									"let GlobalEnvironment = pm.globals.get(\"Environment\");",
+									"console.log(\"Global Environment:\" + GlobalEnvironment)",
+									"",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "29b543d5-d6fb-4b0f-8a79-a01970b692ae",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"Lord Ganesha\")"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "488344b7-1519-4701-bcc3-6c467dce92f4",
+								"type": "text/javascript",
+								"exec": [
+									"console.log(\"Happy Monday\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/api/users?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a9b61cd0-7847-4ec5-a2d4-de8e291b2404",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f393777f-ce28-4aaf-9efa-8847a67fcf10",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"description": "",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type Only"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{Email}}\",\n    \"password\": \"{{Password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/{{Endpoint}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{Endpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New User2",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "New User Creation"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"morpheus\",\n    \"job\": \"leader\",\n    \"state\": \"New South Wales\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "31d09207-0aef-4f80-bd37-898cf2014762",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6ea14d6c-6b08-461a-9490-22832553b339",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b6693b28-f019-4061-8b9f-24c614c39711",
+			"key": "url",
+			"value": "https://reqres.in",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
